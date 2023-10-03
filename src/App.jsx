@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState } from "react";
-import axios, { Axios } from "axios";
+import Axios  from "axios";
 
 const App = () => {
   const [pokemonName, setPokemonName] = useState("");
@@ -42,15 +42,30 @@ const App = () => {
         <h1>Pokédex</h1>
         <input
           type="text"
-          onChange={(ev) => setPokemonName(event.target.value)}
+          onChange={(event) => {
+            setPokemonName(event.target.value);
+          }}
+          value={pokemonName.toLowerCase()}
         />
-        <button onClick={searchPokemon}>Search Pokémon</button>
+<div>
+{pokemonName && <button onClick={searchPokemon}>Search Pokémon</button>}
+</div>
       </div>
       <div className="DisplaySection">
         {!pokemonChosen ? (
           <h1> Please choose a Pokémon </h1>
         ) : (
-          <h1>{pokemon.name}</h1>
+          <>
+            <h1>{pokemon.name}</h1>
+            <img src={pokemon.image} alt={pokemon.name} />
+            <h3>Number: #{pokemon.number}</h3>
+            <h3>Species: {pokemon.species}</h3>
+            <h3>Type: {pokemon.type}</h3>
+            <h4>Hp: {pokemon.hp}</h4>
+            <h4>Attack: {pokemon.attack}</h4>
+            <h4>Defense: {pokemon.defense}</h4>
+            <h4>Speed: {pokemon.speed}</h4>
+          </>
         )}
       </div>
     </div>

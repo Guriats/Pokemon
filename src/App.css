@@ -4,6 +4,7 @@ body {
   }
   .App {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   font-family: Calibri;
   font-size: 24px;
@@ -39,4 +40,12 @@ body {
   }
   .TitleSection button:hover {
   cursor: pointer;
+  }
+
+  .DisplaySection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
   }
